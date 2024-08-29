@@ -3,11 +3,14 @@ console.log("Before");
 //using callback to access the getUser
 getUser(1, (user) => {
   //   console.log("User:", user);
-});
-
-//Get the repositories
-getRepositories("Musa", (repos) => {
-  console.log("Repos", repos);
+  //Get the repositories
+  getRepositories(user.gitHubUsername, (repos) => {
+    console.log("Repos", repos);
+  });
+  // to get a single repo
+  singleRepo(user.repo, (commit) => {
+    console.log("Commit", commit);
+  });
 });
 
 //
@@ -41,6 +44,15 @@ function getRepositories(username, callback) {
 //2.Promise
 //3.Async/await
 
+// to get single repo
+
+function singleRepo(repo, callback) {
+  setTimeout(() => {
+    console.log("getting a single repo...");
+
+    callback(["repo1"]);
+  }, 2000);
+}
 //Sync or Blocking code
 // console.log("Starting");
 // console.log("Ending");
