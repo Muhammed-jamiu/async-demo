@@ -12,6 +12,6 @@ p.catch((err) => console.log(err.message));
 obj = new Object("HELLO");
 console.log(typeof obj);
 
-const prom = Promise.reject(new Error("Pass something here...")).catch(
-  console.log("Error:", err.message)
+const prom = Promise.reject(new Error("Pass something here...")).catch((err) =>
+  console.log("Error", err.message)
 );
